@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "923942133067",
+    "firebase_url": "https://pitzoa-ab447.firebaseio.com",
+    "project_id": "pitzoa-ab447",
+    "storage_bucket": "pitzoa-ab447.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923942133067:android:c11f000452b5d122",
+        "android_client_info": {
+          "package_name": "com.example.pitzoa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923942133067-43tqj48495uh7rtmre5tjudtgaclrsb0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pitzoa",
+            "certificate_hash": "b9ece896f062a6f7a888c975086ee187151fc292"
+          }
+        },
+        {
+          "client_id": "923942133067-piqdu5nbpd5547bcvm19tbh8irh4p36s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxIdlAFRG1e0_gxwxFWoQRx1z2uEvZwiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923942133067-piqdu5nbpd5547bcvm19tbh8irh4p36s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
