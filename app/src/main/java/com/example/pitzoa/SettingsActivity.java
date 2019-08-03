@@ -13,8 +13,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -37,12 +40,45 @@ public class SettingsActivity extends AppCompatActivity {
 
         InitializeFields();
 
+        userName.setVisibility(View.INVISIBLE);  //  when user provide his name once the Name field will be INVISIBLE for future.
+
         updateAccountSEttings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateSettings();
             }
         });
+
+        RetrieveUserInfo();
+    }
+
+    private void RetrieveUserInfo() {
+        RootRef.child("Users").child(currentUserID)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name") && (dataSnapshot.hasChild("address")))){
+
+                            String retrieveUserName = dataSnapshot.child("name").getValue().toString();
+                            String retrieveUserAddress = dataSnapshot.child("address").getValue().toString();
+                            String retrieveUserNumber = dataSnapshot.child("number").getValue().toString();
+
+                            // retrieveUserName, userAddress and userNumber will be shown to EditText again
+                            userName.setText(retrieveUserName);
+                            userAddress.setText(retrieveUserAddress);
+                            userNumber.setText(retrieveUserNumber);
+                        }else{
+                            // if none of these exist
+                            userName.setVisibility(View.VISIBLE);
+                            Toast.makeText(SettingsActivity.this, "Please update your information...!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     private void UpdateSettings() {
@@ -78,7 +114,6 @@ public class SettingsActivity extends AppCompatActivity {
                             }
                         }
                     });
-
         }
     }
 
