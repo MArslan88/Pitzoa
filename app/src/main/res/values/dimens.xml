@@ -1,0 +1,7 @@
+
+<resources>
+    <!-- Height of each list item -->
+    <dimen name="list_item_height">170dp</dimen>
+    <!-- Width of each list item menu picture -->
+    <dimen name="menu_pic_width">110dp</dimen>
+</resources>
