@@ -67,7 +67,7 @@ public class DealsFragment extends Fragment {
                 Flavour currentFlavour = listViewAdapter.getItem(position);
 
                 FlavourCall(currentFlavour.getmFlavourHeading());
-                SentUserToStartersForm();
+                SentUserToDealsForm();
                 if (currentFlavour.getmFlavourHeading() == "buy 1 get 2 free"){
                     priceCall("1650");
                 }else if (currentFlavour.getmFlavourHeading() == "xxl special"){
@@ -100,9 +100,9 @@ public class DealsFragment extends Fragment {
                 });
     }
 
-    private void SentUserToStartersForm() {
-        Intent startersFormIntent = new Intent(getActivity(), StartersFormActivity.class);
-        startActivity(startersFormIntent);
+    private void SentUserToDealsForm() {
+        Intent dealsFormIntent = new Intent(getActivity(), DealsFormActivity.class);
+        startActivity(dealsFormIntent);
     }
 
     private void FlavourCall(String flavour) {
