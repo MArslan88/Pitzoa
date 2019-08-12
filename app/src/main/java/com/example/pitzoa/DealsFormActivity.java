@@ -176,14 +176,14 @@ public class DealsFormActivity extends AppCompatActivity {
 
     private void RetrieveDeals() {
 
-        RootRef.child("Users").child(currentUserID).child("deals")
+        RootRef.child("Users").child(currentUserID).child("flavours")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("deal") )){ // if user is updated selected Flavour then
+                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("flavour") )){ // if user is updated selected Flavour then
 
-                            String retrieveDeal = dataSnapshot.child("deal").getValue().toString();
+                            String retrieveDeal = dataSnapshot.child("flavour").getValue().toString();
                             // retrieveFlavour will be shown to message withe the name selectedFlavour
                             selectedDeal= retrieveDeal;
                         }else{ // if none of these exist

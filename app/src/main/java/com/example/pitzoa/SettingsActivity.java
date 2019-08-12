@@ -38,9 +38,11 @@ public class SettingsActivity extends AppCompatActivity {
         currentUserID = mAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
 
+        RootRef.keepSynced(true);
+
         InitializeFields();
 
-        userName.setVisibility(View.INVISIBLE);  //  when user provide his name once the Name field will be INVISIBLE for future.
+       // userName.setVisibility(View.INVISIBLE);  //  when user provide his name once the Name field will be INVISIBLE for future.
 
         updateAccountSEttings.setOnClickListener(new View.OnClickListener() {
             @Override
